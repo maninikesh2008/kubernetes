@@ -1,8 +1,3 @@
-variable "region" {
-  default     = "us-east-2"
-  description = "AWS region"
-}
-
 provider "aws" {
   region = var.region
 }
@@ -10,7 +5,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "my_eks_first_cluster"
+  cluster_name = var.cluster_name
 }
 
 resource "random_string" "suffix" {
