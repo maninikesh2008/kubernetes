@@ -28,13 +28,12 @@ variable "worker_instance_ASG_2" {
   description = "AWS Auto Scaling Group"
 }
 
-variable "ingress_port_from" {
-  type = list
-  default     = ["22", "80", "443"]
-  description = "Mention all port you need to enable"
+variable "ec2_ingress_ports_default" {
+  description = "Allowed Ec2 ports"
+#  type        = list
+  default     = {
+    "22"  = ["192.168.1.0/24", "10.0.0.0/24" ]
+    "443" = ["0.0.0.0/0"]
+    "80"  = ["0.0.0.0/0"]
 }
-variable "ingress_port_to" {
-  type = list
-  default     = ["22", "80", "443"]
-  description = "Mention all port you need to enable"
 }
